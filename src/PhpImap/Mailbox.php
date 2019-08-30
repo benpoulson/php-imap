@@ -1109,7 +1109,7 @@ class Mailbox
                 '/_+/' => '_',
                 '/(^_)|(_$)/' => '',
             ];
-            $fileSysName = preg_replace('~[\\\\/]~', '', $mailId.'_'.$attachmentId.'_'.preg_replace(array_keys($replace), $replace, $fileName));
+            $fileSysName = preg_replace('~[\\\\/]~', '', $mailId.'_'.$attachmentId.bin2hex(random_bytes(5)).'_'.preg_replace(array_keys($replace), $replace, $fileName));
             $filePath = $this->getAttachmentsDir().\DIRECTORY_SEPARATOR.$fileSysName;
 
             if (\strlen($filePath) > 255) {
