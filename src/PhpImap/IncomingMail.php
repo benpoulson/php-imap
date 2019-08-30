@@ -78,7 +78,7 @@ class IncomingMail extends IncomingMailHeader
 
     public function addAttachment(IncomingMailAttachment $attachment)
     {
-        $this->attachments[$attachment->id] = $attachment;
+        $this->attachments[bin2hex(random_bytes(5))] = $attachment;
     }
 
     /**
